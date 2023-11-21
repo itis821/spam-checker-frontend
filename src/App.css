@@ -2,9 +2,25 @@
   text-align: center;
 }
 
+.comment {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
 #logo {
+  margin-top: 50px;
   width: 320px;
   height: 200px;
+}
+
+#cmt {
+  width: 500px;
+  height: 30px;
+}
+
+#cmt_btn {
+  width: 70px;
+  height: 50px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
