@@ -1,8 +1,9 @@
 import Comment from './Comment';
+import './CommentList.css'
 
 const CommentList = ({commentList}) => {
     return (
-        <div>
+        <div className='commentList-container'>
             {commentList.map((comment) => (
                 <div key = {comment.id}>
                     <Comment comment={comment}/>
