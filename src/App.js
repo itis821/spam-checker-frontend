@@ -42,7 +42,6 @@ function App() {
       const response = await axios.post("/api/comment", { contents : comment });
       setCommentList(response.data.commentList);
       setComment("");
-      console.log(response.data);
 
     } catch (error) {
       console.error("댓글 등록 오류:", error);
