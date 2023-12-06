@@ -1,10 +1,13 @@
+import React from 'react';
+import './Comment.css';
+
 const Comment = ({comment}) => {
 
     return (
-        <div>
-                <span id='comment_id'>익명{comment.id}</span>
-                <span id='comment_contents'>{comment.contents}</span>
-                <span id='comment_time'>{formatDate(comment.createdDate)}</span>
+        <div className="comment-container">
+                <span className='comment-id'>익명{comment.id}</span>
+                <span className='comment-contents'>{comment.contents}</span>
+                <span className='comment-time'>{formatDate(comment.createdDate)}</span>
         </div>
     )
 }

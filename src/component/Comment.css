@@ -1,0 +1,28 @@
+/* Comment.css */
+.comment-container {
+  display: grid; /* 그리드 레이아웃 적용 */
+  grid-template-columns: 1fr 6fr 1fr; /* 각 칼럼의 비율 설정 */
+  gap: 10px; /* 칼럼 사이의 간격 */
+  width: 700px;
+  border: 1px solid #ddd; /* 경계선 스타일 */
+  padding: 10px; /* 패딩 */
+  margin: 10px auto; /* 상단 및 하단 여백과 수평 중앙 정렬 */
+  border-radius: 5px; /* 경계선 둥글게 */
+  background-color: #f9f9f9; /* 배경색 */
+}
+
+.comment-id {
+  font-weight: bold; /* 글씨 굵게 */
+  color: #333; /* 글씨 색상 */
+}
+
+.comment-contents {
+  color: #555; /* 글씨 색상 */
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.comment-time {
+  font-size: 0.8em; /* 글씨 크기 */
+  color: #888; /* 글씨 색상 */
+}
