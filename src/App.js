@@ -56,6 +56,7 @@ function App() {
       <img src={logo} id = 'logo' alt='로고 이미지'/>
 
       <div className='comment'>
+
         <TextField 
           id="cmt" 
           label="댓글 입력" 
@@ -63,13 +64,15 @@ function App() {
           value={comment}
           onChange={handleCommentChange}
         />
+
         <Button 
-          id= "cmt_btn" v
-          ariant="contained"
+          id= "cmt_btn" 
+          variant="contained"
           onClick={handleCommentSubmit}
         >
           등록
         </Button>
+
       </div>
       
       <CommentList commentList={commentList} />
