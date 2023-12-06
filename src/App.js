@@ -8,7 +8,14 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [commentList, setCommentList] = useState([]);
+  const [comment, setComment] = useState("");
 
+  // 댓글 상태 변경
+  const handleCommentChange = (event) => {
+    setComment(event.target.value)
+  }
+
+  // 댓글 불러오기 API (GET COMMENT)
   useEffect(() => {
     const getComments = async () => {
       try {
@@ -22,14 +29,47 @@ function App() {
     getComments();
   }, []);
 
+  // 댓글 등록 API (POST COMMENT)
+  const handleCommentSubmit = async () => {
+
+    if(!comment){
+      alert("댓글을 입력해주세요.");
+      return;
+    }
+
+    try {
+      
+      const response = await axios.post("/api/comment", { contents : comment });
+      setCommentList(response.data.commentList);
+      setComment("");
+      console.log(response.data);
+
+    } catch (error) {
+      console.error("댓글 등록 오류:", error);
+    }
+  };
+
+
   return (
     <div className="App">
 
       <img src={logo} id = 'logo' alt='로고 이미지'/>
 
       <div className='comment'>
-        <TextField id="cmt" label="댓글 입력" variant="standard" />
-        <Button id= "cmt_btn" variant="contained">등록</Button>
+        <TextField 
+          id="cmt" 
+          label="댓글 입력" 
+          variant="standard"
+          value={comment}
+          onChange={handleCommentChange}
+        />
+        <Button 
+          id= "cmt_btn" v
+          ariant="contained"
+          onClick={handleCommentSubmit}
+        >
+          등록
+        </Button>
       </div>
       
       <CommentList commentList={commentList} />
