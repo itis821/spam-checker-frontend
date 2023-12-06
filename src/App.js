@@ -20,7 +20,10 @@ function App() {
     const getComments = async () => {
       try {
         const response = await axios.get("/api/comment");
-        setCommentList(response.data.commentList);
+        const sortedCommentList = response.data.commentList.sort((a,b) => {
+          return new Date(b.createdDate) - new Date(a.createdDate)
+        })
+        setCommentList(sortedCommentList);
       } catch (error) {
         console.error("댓글 가져오기 오류:", error);
       }
@@ -38,11 +41,12 @@ function App() {
     }
 
     try {
-      
       const response = await axios.post("/api/comment", { contents : comment });
-      setCommentList(response.data.commentList);
+      const sortedCommentList = response.data.commentList.sort((a,b) => {
+        return new Date(b.createdDate) - new Date(a.createdDate)
+      })
+      setCommentList(sortedCommentList);
       setComment("");
-
     } catch (error) {
       console.error("댓글 등록 오류:", error);
     }

@@ -1,9 +1,10 @@
 const Comment = ({comment}) => {
+
     return (
         <div>
-            <div>익명{comment.id}</div>
-            <div>{comment.contents}</div>
-            <div>{formatDate(comment.createdDate)}</div>
+                <span id='comment_id'>익명{comment.id}</span>
+                <span id='comment_contents'>{comment.contents}</span>
+                <span id='comment_time'>{formatDate(comment.createdDate)}</span>
         </div>
     )
 }
